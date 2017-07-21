@@ -13,8 +13,24 @@ public class ApacheMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
 	private final IntWritable one=new IntWritable(1);
 	private final Text res=new Text();
 	
-	private String regex="(([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3}))"; //ip서치
+	static String regex;
 	private Pattern p=Pattern.compile(regex);
+	
+	/*public ApacheMapper() {
+		regex="(([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3}))"; //ip서치
+		System.out.println("안녕");
+	}*/
+	
+	/*{
+		regex="(([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3}))"; //ip서치
+		
+	}*/
+	
+	static{
+		regex="(([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3}))"; //ip서치
+		
+	}
+	
 	
 	protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, IntWritable>.Context context)
 			throws IOException, InterruptedException {

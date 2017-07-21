@@ -14,6 +14,7 @@ public class ApacheDriver2 {
 			Configuration conf=new Configuration();
 			Job job=Job.getInstance(conf,"apache-log");
 			job.setMapperClass(ApacheMapper.class);
+			//job.setMapperClass(new ApacheMapper().getClass());
 			job.setReducerClass(ApacheReducer.class);
 			job.setJarByClass(ApacheDriver.class);
 			
